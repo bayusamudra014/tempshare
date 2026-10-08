@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>TempShare: Download</title>
+  <style>
+    body { font-family: sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; }
+  </style>
+</head>
+<body>
+  <h1>Download file</h1>
+  <p>Enter the secret code you received.</p>
+  <input id='code' placeholder='Secret code' autocomplete='off'>
+  <button id='go'>Download</button>
+  <p id='status'></p>
+
+  <script>
+    const id = location.pathname.split('/').pop();
+    document.getElementById('go').onclick = async () => {
+      const status = document.getElementById('status');
+      const code = document.getElementById('code').value;
+      const res = await fetch('/api/shares/' + id + '/access', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      });
+      const data = await res.json();
+      if (!res.ok) { status.textContent = data.error; return; }
+      status.textContent = 'Downloading ' + data.filename + '...';
+      window.location = data.downloadUrl; // browser follows the 60-second URL
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "Rules": [
+    {
+      "ID": "expire-uploads-after-1-day",
+      "Status": "Enabled",
+      "Filter": { "Prefix": "uploads/" },
+      "Expiration": { "Days": 1 },
+      "AbortIncompleteMultipartUpload": { "DaysAfterInitiation": 1 }
+    }
+  ]
+}
