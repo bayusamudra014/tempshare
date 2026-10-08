@@ -1,6 +1,6 @@
 # TempShare
 
-Runnable files from *Practicum: Temporary File Sharing with Amazon S3 Presigned URLs*.
+Runnable files from _Practicum: Temporary File Sharing with Amazon S3 Presigned URLs_.
 
 ```
 tempshare/
@@ -13,11 +13,8 @@ tempshare/
 │   └── share.html        # section 5.2 – download page
 └── aws/
     ├── cors.json         # section 2.2 – paste into S3 console (Permissions → CORS)
-    ├── cors-cli.json     # same rule wrapped in {"CORSRules": …} for the CLI
     ├── lifecycle.json    # section 2.3
-    ├── iam-policy.json   # section 2.4 – paste into IAM → Policies → JSON
-    ├── setup-bucket.sh   # sections 2.1–2.3 as CLI commands
-    └── verify-identity.sh# section 2.5
+    └── iam-policy.json   # section 2.4 – paste into IAM → Policies → JSON
 ```
 
 ## Quick start
